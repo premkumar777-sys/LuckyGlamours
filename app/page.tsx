@@ -4,12 +4,16 @@ import React, { useState } from "react";
 import { AnnouncementBar } from "../components/AnnouncementBar";
 import { Header } from "../components/Header";
 import { HeroSection } from "../components/HeroSection";
+import { PillarsOverview } from "../components/PillarsOverview";
+import { BeautyServices } from "../components/BeautyServices";
+import { MakeupPortfolio } from "../components/MakeupPortfolio";
+import { BeautyAcademy } from "../components/BeautyAcademy";
 import { BrandIntroduction } from "../components/BrandIntroduction";
 import { ProductGrid } from "../components/ProductGrid";
 import { FeaturedProduct } from "../components/FeaturedProduct";
-import { MakerStory } from "../components/MakerStory";
 import { IngredientsSection } from "../components/IngredientsSection";
 import { GiftCollection } from "../components/GiftCollection";
+import { MakerStory } from "../components/MakerStory";
 import { CustomerFeedback } from "../components/CustomerFeedback";
 import { FAQAccordion } from "../components/FAQAccordion";
 import { Footer } from "../components/Footer";
@@ -21,40 +25,52 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-ivory text-charcoal font-sans selection:bg-olive selection:text-ivory">
-      {/* Section A — Announcement Bar */}
+      {/* Announcement Bar */}
       <AnnouncementBar />
 
-      {/* Section B — Navigation Header */}
+      {/* Main Header Navigation */}
       <Header />
 
-      {/* Section C — Editorial Hero */}
+      {/* 3-Pillar Hero Section */}
       <HeroSection />
 
-      {/* Section D — Brand Introduction */}
+      {/* Explore Lucky Glamours 3 Pillars */}
+      <PillarsOverview />
+
+      {/* Beauty & Makeup Services */}
+      <BeautyServices />
+
+      {/* Bridal & Event Portfolio */}
+      <MakeupPortfolio />
+
+      {/* Beauty Academy & Training Courses */}
+      <BeautyAcademy />
+
+      {/* Botanical Skincare Introduction */}
       <BrandIntroduction />
 
-      {/* Section E — Shop the Collection */}
+      {/* Shop Soaps & Oils Collection */}
       <ProductGrid onSelectProduct={(p) => setSelectedProduct(p)} />
 
-      {/* Section F — Featured Artisanal Product */}
+      {/* Featured Artisanal Product Spotlight */}
       <FeaturedProduct onSelectProduct={(p) => setSelectedProduct(p)} />
 
-      {/* Section G — The Maker's Story */}
-      <MakerStory />
-
-      {/* Section H — Ingredients & Craftsmanship */}
+      {/* Botanical Ingredients & Craftsmanship */}
       <IngredientsSection />
 
-      {/* Section I — Gift Collections */}
+      {/* Botanical Gift Collections */}
       <GiftCollection />
 
-      {/* Section J — Customer Feedback */}
+      {/* About Lucky Glamours & Founder Story */}
+      <MakerStory />
+
+      {/* Customer Feedback Notice */}
       <CustomerFeedback />
 
-      {/* Section K — FAQ Accordion */}
+      {/* Frequently Asked Questions */}
       <FAQAccordion />
 
-      {/* Section L — Footer */}
+      {/* Footer */}
       <Footer />
 
       {/* Product Detail Modal */}

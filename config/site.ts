@@ -4,7 +4,7 @@ export interface SiteConfig {
   subTagline: string;
   announcement: string;
   whatsappNumber: string; // International format without + or spaces, e.g., '919876543210'
-  whatsappDisplayNumber: string; // Formatted for display
+  whatsappDisplayNumber: string;
   email: string;
   instagramUrl: string;
   locationPlaceholder: string;
@@ -12,21 +12,21 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   brandName: "Lucky Glamours",
-  tagline: "Haute Botanical Skincare & Artisan Oils",
-  subTagline: "Handcrafted soaps & slow-infused hair and body oils made in small artisanal batches.",
-  announcement: "Handcrafted with care · Discover our collection",
+  tagline: "Beauty Artistry · Bridal · Beauty Academy · Botanical Skincare",
+  subTagline: "Professional makeup artistry, bridal styling, skill training courses, and handcrafted botanical soaps & oils.",
+  announcement: "Beauty, artistry & handcrafted self-care",
   
   // EDITABLE: Replace this with the actual business WhatsApp number (e.g., '91XXXXXXXXXX')
   whatsappNumber: "919876543210", 
   whatsappDisplayNumber: "+91 98765 43210 (Configure your number in config/site.ts)",
   
-  email: "hello@luckyglamours.com", // EDITABLE: Place actual email when available
-  instagramUrl: "https://instagram.com/luckyglamours", // EDITABLE: Place actual handle
-  locationPlaceholder: "Handcrafted in India · Dispatching Nationwide",
+  email: "hello@luckyglamours.com",
+  instagramUrl: "https://instagram.com/luckyglamours",
+  locationPlaceholder: "India · Studio & On-Location Bridal Services · Nationwide Dispatch for Oils & Soaps",
 };
 
 /**
- * Generates a pre-filled WhatsApp click-to-chat URL for ordering or inquiring about a specific product.
+ * Generates a WhatsApp URL for product orders (Soaps & Oils).
  */
 export function getWhatsAppProductUrl(productName: string, size?: string): string {
   const cleanNumber = siteConfig.whatsappNumber.replace(/[^0-9]/g, "");
@@ -36,7 +36,25 @@ export function getWhatsAppProductUrl(productName: string, size?: string): strin
 }
 
 /**
- * Generates a pre-filled WhatsApp click-to-chat URL for general inquiries or gift sets.
+ * Generates a WhatsApp URL for beauty & bridal service inquiries.
+ */
+export function getWhatsAppServiceUrl(serviceName: string): string {
+  const cleanNumber = siteConfig.whatsappNumber.replace(/[^0-9]/g, "");
+  const text = `Hello Lucky Glamours! I would like to enquire about ${serviceName}. Please share availability, package details, and pricing.`;
+  return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * Generates a WhatsApp URL for Beauty Academy course inquiries.
+ */
+export function getWhatsAppCourseUrl(courseName: string): string {
+  const cleanNumber = siteConfig.whatsappNumber.replace(/[^0-9]/g, "");
+  const text = `Hello Lucky Glamours! I am interested in your ${courseName} training. Please share the syllabus, duration, fees, and upcoming batch details.`;
+  return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * Generates a WhatsApp URL for general or portfolio inquiries.
  */
 export function getWhatsAppGeneralUrl(subject = "General Inquiry"): string {
   const cleanNumber = siteConfig.whatsappNumber.replace(/[^0-9]/g, "");

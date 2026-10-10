@@ -9,23 +9,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Lucky Glamours — Haute Botanical Skincare & Artisan Oils",
+  title: "Lucky Glamours — Beauty Artistry, Bridal, Academy & Botanical Skincare",
   description:
-    "Handcrafted small-batch cold-process soaps and slow-infused botanical hair and body oils. Made with cold-pressed plant oils, unrefined shea butter, and natural herbs.",
+    "Professional makeup artistry, bridal & groom styling, beauty skill training courses, and handcrafted small-batch soaps & oils. All inquiries & orders fulfilled via WhatsApp.",
   keywords: [
+    "bridal makeup",
+    "groom makeup",
+    "engagement makeup",
+    "beauty academy",
+    "makeup courses",
+    "brow shaping course",
     "handmade soap",
-    "cold process soap",
-    "botanical skincare",
     "hair oil",
-    "body oil",
     "Lucky Glamours",
-    "artisan soap bar",
-    "natural skincare India",
   ],
   openGraph: {
-    title: "Lucky Glamours — Haute Botanical Skincare & Artisan Oils",
+    title: "Lucky Glamours — Beauty Artistry, Bridal, Academy & Botanical Skincare",
     description:
-      "Discover handmade soaps and thoughtfully crafted oils for your everyday self-care rituals.",
+      "Your beauty, beautifully expressed. From bridal and occasion makeup to professional beauty training and handmade botanical soaps and oils.",
     type: "website",
   },
 };
