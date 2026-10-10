@@ -146,13 +146,13 @@ export const BeautyServices: React.FC = () => {
             aria-modal="true"
           >
             <div className="fixed inset-0" onClick={() => setSelectedService(null)} aria-hidden="true" />
-            <div className="relative bg-ivory border border-sage/80 rounded-sm w-full max-w-2xl overflow-hidden shadow-2xl z-10 p-6 space-y-6">
-              <div className="flex items-center justify-between border-b border-sage/40 pb-4">
+            <div className="relative bg-ivory border border-sage/80 rounded-sm w-full max-w-lg overflow-hidden shadow-2xl z-10 p-5 space-y-4">
+              <div className="flex items-center justify-between border-b border-sage/40 pb-3">
                 <div>
                   <span className="font-sans text-[10px] uppercase tracking-widest text-earth font-semibold block">
                     {selectedService.categoryLabel}
                   </span>
-                  <h3 className="font-serif text-2xl font-medium text-charcoal">{selectedService.name}</h3>
+                  <h3 className="font-serif text-xl font-medium text-charcoal">{selectedService.name}</h3>
                 </div>
                 <button
                   type="button"
@@ -163,26 +163,26 @@ export const BeautyServices: React.FC = () => {
                 </button>
               </div>
 
-              <div className="space-y-4 text-xs font-sans text-charcoal/80">
+              <div className="space-y-3 text-xs font-sans text-charcoal/80">
                 <ImagePlaceholder
                   label={selectedService.placeholderLabel}
                   aspectRatio="landscape"
-                  subText={`Detailed placeholder for ${selectedService.name}`}
+                  subText={`Placeholder for ${selectedService.name}`}
                 />
-                <p className="text-sm leading-relaxed">{selectedService.description}</p>
+                <p className="text-xs text-charcoal/80 leading-relaxed font-light">{selectedService.description}</p>
                 
-                <div className="p-3 bg-sage-light/40 rounded border border-sage/40">
-                  <span className="font-semibold block text-charcoal mb-1">Pricing & Customization:</span>
-                  {selectedService.startingPrice || "Enquire for pricing"}. Exact pricing depends on event date, venue location, and package inclusions.
+                <div className="p-2.5 bg-sage-light/40 rounded border border-sage/40 text-[11px] font-sans flex items-center justify-between text-earth">
+                  <span><strong className="text-charcoal">Occasion:</strong> {selectedService.occasion}</span>
+                  <span className="font-semibold text-olive bg-ivory px-2 py-0.5 rounded border border-sage/40">{selectedService.startingPrice || "Enquire for pricing"}</span>
                 </div>
 
                 {selectedService.packageDetails && (
-                  <div className="space-y-2">
-                    <span className="font-semibold block text-charcoal">Package Features Included:</span>
+                  <div className="space-y-1.5 pt-1">
+                    <span className="font-semibold block text-charcoal text-[11px]">Included Highlights:</span>
                     <ul className="space-y-1">
                       {selectedService.packageDetails.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-olive" />
+                        <li key={idx} className="flex items-center gap-1.5 text-[11px]">
+                          <span className="w-1 h-1 rounded-full bg-olive shrink-0" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -191,11 +191,11 @@ export const BeautyServices: React.FC = () => {
                 )}
               </div>
 
-              <div className="pt-4 border-t border-sage/40 flex justify-end gap-3">
+              <div className="pt-3 border-t border-sage/40 flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setSelectedService(null)}
-                  className="px-5 py-2.5 text-xs uppercase font-semibold border border-sage-dark text-charcoal rounded-sm"
+                  className="px-4 py-2 text-[11px] uppercase font-semibold border border-sage-dark text-charcoal rounded-sm"
                 >
                   Close
                 </button>
@@ -203,7 +203,7 @@ export const BeautyServices: React.FC = () => {
                   href={getWhatsAppServiceUrl(selectedService.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-olive text-ivory text-xs uppercase font-semibold px-6 py-2.5 rounded-sm"
+                  className="inline-flex items-center gap-1.5 bg-olive text-ivory text-[11px] uppercase font-semibold px-5 py-2 rounded-sm hover:bg-olive-dark transition-colors"
                 >
                   Enquire via WhatsApp
                 </a>

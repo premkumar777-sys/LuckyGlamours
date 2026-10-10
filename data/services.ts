@@ -16,14 +16,14 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Couture Bridal Makeup",
     category: "bridal-groom",
     categoryLabel: "Bridal & Groom",
-    description: "Personalized signature bridal makeup tailored to enhance your natural features, attire palette, and wedding aesthetic. Includes trial consultation, skin preparation, HD/Airbrush technique, lash application, and saree/dupatta draping assistance.",
+    description: "Signature HD & airbrush bridal makeup with customized skin prep, lash setting, and saree/dupatta draping.",
     occasion: "Main Wedding Ceremony",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "Skin prep & HD / Airbrush makeup",
-      "Hair styling & floral hair embellishments",
-      "Saree, dupatta, or lehenga draping assistance",
-      "Lash application & touch-up kit guidance"
+      "HD / Airbrush bridal makeup & skin prep",
+      "Hair styling & floral hair placement",
+      "Saree / lehenga dupatta draping",
+      "Eyelash application & touch-up kit"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
   },
@@ -32,14 +32,13 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Groom Makeup & Grooming",
     category: "bridal-groom",
     categoryLabel: "Bridal & Groom",
-    description: "Subtle, camera-ready grooming tailored specifically for grooms. Focuses on skin evening, shine control, beard conditioning, and natural complexion refinement.",
-    occasion: "Wedding & Reception Ceremonies",
+    description: "Subtle, camera-ready grooming focusing on skin evening, anti-shine finish, and natural complexion refinement.",
+    occasion: "Wedding & Reception",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "Hydrating skin prep & complexion evening",
-      "Anti-shine matte finish for high-res photography",
-      "Beard alignment & hair setting",
-      "Subtle under-eye & spot correction"
+      "Hydrating skin prep & tone evening",
+      "Anti-shine matte finish for photos",
+      "Beard alignment & hair setting"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
   },
@@ -48,12 +47,12 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Engagement Makeup",
     category: "bridal-groom",
     categoryLabel: "Bridal & Groom",
-    description: "Radiant, romantic makeup look designed for engagement ring ceremonies and cocktail evenings. Custom color coordination to match your gown or lehenga.",
-    occasion: "Engagement & Ring Ceremony",
+    description: "Radiant, romantic makeup look tailored to complement your ring ceremony gown or lehenga.",
+    occasion: "Engagement Ceremony",
     startingPrice: "Enquire for pricing",
     packageDetails: [
       "Luminous skin finish & eye sculpting",
-      "Custom hair styling & accessory placement",
+      "Hair styling & accessory setting",
       "Outfit draping assistance"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
@@ -63,13 +62,13 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Reception Makeup",
     category: "bridal-groom",
     categoryLabel: "Bridal & Groom",
-    description: "Glamorous evening makeup with long-wearing coverage formulated to look breathtaking under evening stage lighting and flash photography.",
+    description: "Glamorous high-definition evening makeup designed for stage lighting and flash photography.",
     occasion: "Wedding Reception & Gala",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "High-definition evening makeup",
-      "Statement eye or lip focus",
-      "Hairstyling & veil/dupatta setting"
+      "HD evening glam makeup",
+      "Statement eye or lip styling",
+      "Hairstyling & veil / dupatta setting"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
   },
@@ -78,13 +77,13 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Party & Celebration Makeup",
     category: "occasion",
     categoryLabel: "Occasion Makeup",
-    description: "Chic, polished makeup for birthday celebrations, anniversary galas, sangeet parties, and special evening events.",
-    occasion: "Parties & Evening Celebrations",
+    description: "Chic, polished makeup styling for birthdays, anniversaries, sangeet, and festive celebrations.",
+    occasion: "Parties & Festive Events",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "Customized makeup application",
-      "Basic hair styling & setting",
-      "Lash application optional"
+      "Customized party makeup",
+      "Hair styling & setting",
+      "Optional lash application"
     ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
   },
@@ -93,8 +92,8 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Wedding Guest & Family Makeup",
     category: "occasion",
     categoryLabel: "Occasion Makeup",
-    description: "Elegant, long-lasting makeup styling for bridesmaids, mothers, sisters, and wedding guests to complement the bridal party palette.",
-    occasion: "Sangeet, Mehendi & Wedding Guests",
+    description: "Elegant, long-lasting makeup styling for bridesmaids, mothers, sisters, and wedding guests.",
+    occasion: "Sangeet, Mehendi & Guests",
     startingPrice: "Enquire for pricing",
     packageDetails: [
       "Soft HD complexion styling",
@@ -108,13 +107,13 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Pre-Wedding Photoshoot Makeup",
     category: "photoshoot",
     categoryLabel: "Pre-Wedding & Shoots",
-    description: "Versatile, natural-looking makeup designed for outdoor or indoor pre-wedding concept shoots. Formulated for longevity under outdoor sunlight.",
-    occasion: "Pre-Wedding Concept Shoot",
+    description: "Natural, camera-focused makeup crafted for outdoor and concept pre-wedding photography.",
+    occasion: "Pre-Wedding Shoot",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "Photo-ready natural skin finish",
-      "Outfit change makeup adjustments",
-      "Hair touch-ups for outdoor settings"
+      "Camera-ready natural skin finish",
+      "On-set touch-ups & outfit tweaks",
+      "Hair setting for outdoor weather"
     ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
   },
@@ -123,9 +122,14 @@ export const BEAUTY_SERVICES: BeautyService[] = [
     name: "Special Occasion & Editorial Makeup",
     category: "photoshoot",
     categoryLabel: "Pre-Wedding & Shoots",
-    description: "Bespoke makeup styling for portfolio shoots, fashion campaigns, award ceremonies, and media appearances.",
+    description: "Bespoke high-fashion and media makeup for portfolio shoots, awards, and editorial events.",
     occasion: "Editorial & Media Events",
     startingPrice: "Enquire for pricing",
+    packageDetails: [
+      "High-fashion editorial makeup",
+      "Theme-based hair styling",
+      "Photography lighting optimization"
+    ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
   }
 ];
