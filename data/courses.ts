@@ -13,36 +13,19 @@ export interface BeautyCourse {
 
 export const ACADEMY_COURSES: BeautyCourse[] = [
   {
-    id: "eyebrow-shaping-grooming",
-    name: "Eyebrow Shaping & Brow Architecture",
-    subtitle: "Master precision facial mapping & brow design techniques",
-    description: "Learn fundamental brow symmetry, facial structure mapping, precision tweezing, trimming, and shaping to craft bespoke brows for every face shape.",
+    id: "eyebrow-shaping-threading",
+    name: "Eyebrow Shaping & Professional Threading",
+    subtitle: "Master precision facial mapping, thread control & brow design",
+    description: "Learn fundamental brow symmetry, facial structure mapping, precision cotton thread control, tweezing, trimming, and shaping to craft bespoke brows for every face shape.",
     whatYouWillLearn: [
       "Facial geometry & brow mapping",
-      "Precision thread control & trimming",
-      "Custom brow fill & tinting aesthetics",
+      "Thread loop holding & tension control",
+      "Precision trimming & shaping techniques",
       "Client consultation & hygiene standards"
     ],
     format: "In-Person Practical Workshop",
     duration: "Contact us for course details",
     eligibility: "Open to beginners & beauty enthusiasts",
-    fees: "Contact us for course details",
-    placeholderLabel: "[COURSE PHOTOGRAPH]",
-  },
-  {
-    id: "threading-techniques",
-    name: "Professional Threading Techniques",
-    subtitle: "Traditional hair removal precision & speed training",
-    description: "Step-by-step practical training in traditional cotton thread manipulation for facial hair removal, including upper lip, chin, forehead, and brow shaping.",
-    whatYouWillLearn: [
-      "Thread loop holding & tension control",
-      "Facial skin prep & soothing post-care",
-      "Speed, accuracy, and painless technique tips",
-      "Sanitization & client comfort protocols"
-    ],
-    format: "In-Person Hands-On Practice",
-    duration: "Contact us for course details",
-    eligibility: "No prior experience required",
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
   },
@@ -77,40 +60,6 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     format: "In-Person Intensive Module",
     duration: "Contact us for course details",
     eligibility: "Basic makeup knowledge recommended",
-    fees: "Contact us for course details",
-    placeholderLabel: "[COURSE PHOTOGRAPH]",
-  },
-  {
-    id: "party-event-makeup",
-    name: "Party & Glamour Event Makeup",
-    subtitle: "High-impact evening looks & trend styling",
-    description: "Learn versatile glam makeup techniques for sangeet, cocktail parties, and festive occasions, focusing on glitter application, bold lips, and contoured sculpting.",
-    whatYouWillLearn: [
-      "Glam eye techniques & glitter adhesion",
-      "Facial contouring, highlighting & blush placement",
-      "Long-wear setting spray methods",
-      "Client look customization"
-    ],
-    format: "Hands-On Practical Sessions",
-    duration: "Contact us for course details",
-    eligibility: "Open to aspiring makeup artists",
-    fees: "Contact us for course details",
-    placeholderLabel: "[COURSE PHOTOGRAPH]",
-  },
-  {
-    id: "skin-prep-complexion",
-    name: "Skin Preparation & Complexion Masterclass",
-    subtitle: "Building flawless, long-lasting bases for all skin types",
-    description: "Understand the science of skin prep—learning how to hydrate dry patches, balance oily T-zones, smooth texture, and choose correct color correctors.",
-    whatYouWillLearn: [
-      "Skin type diagnostic & botanical prep oils",
-      "Color theory for redness & hyperpigmentation",
-      "Dewy vs. velvet matte foundation finishes",
-      "Flashback prevention in photography"
-    ],
-    format: "In-Person Theory & Practical",
-    duration: "Contact us for course details",
-    eligibility: "Beginners & professional artists",
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
   }
