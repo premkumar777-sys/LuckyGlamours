@@ -1,84 +1,67 @@
 "use client";
 
 import React, { useState } from "react";
-import { Navigation } from "../components/Navigation";
-import { Hero } from "../components/Hero";
-import { BrandIntro } from "../components/BrandIntro";
-import { ServicesExplorer } from "../components/ServicesExplorer";
-import { SignatureExperience } from "../components/SignatureExperience";
-import { Transformation } from "../components/Transformation";
-import { EditorialPortfolio } from "../components/EditorialPortfolio";
-import { BeautyDetails } from "../components/BeautyDetails";
-import { ArtistStory } from "../components/ArtistStory";
-import { Testimonials } from "../components/Testimonials";
-import { BookingExperience } from "../components/BookingExperience";
-import { ContactConcierge } from "../components/ContactConcierge";
+import { AnnouncementBar } from "../components/AnnouncementBar";
+import { Header } from "../components/Header";
+import { HeroSection } from "../components/HeroSection";
+import { BrandIntroduction } from "../components/BrandIntroduction";
+import { ProductGrid } from "../components/ProductGrid";
+import { FeaturedProduct } from "../components/FeaturedProduct";
+import { MakerStory } from "../components/MakerStory";
+import { IngredientsSection } from "../components/IngredientsSection";
+import { GiftCollection } from "../components/GiftCollection";
+import { CustomerFeedback } from "../components/CustomerFeedback";
+import { FAQAccordion } from "../components/FAQAccordion";
 import { Footer } from "../components/Footer";
+import { ProductDetailModal } from "../components/ProductDetailModal";
+import { Product } from "../data/products";
 
 export default function Home() {
-  const [modalBookingOpen, setModalBookingOpen] = useState(false);
-  const [selectedServiceIdForModal, setSelectedServiceIdForModal] = useState<string | undefined>(
-    undefined
-  );
-
-  const handleOpenBooking = (serviceId?: string) => {
-    setSelectedServiceIdForModal(serviceId);
-    setModalBookingOpen(true);
-  };
-
-  const handleCloseBooking = () => {
-    setModalBookingOpen(false);
-  };
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   return (
-    <main className="relative flex flex-col w-full overflow-hidden">
-      {/* Luxury Navigation Header */}
-      <Navigation onOpenBooking={handleOpenBooking} />
+    <main className="min-h-screen bg-ivory text-charcoal font-sans selection:bg-olive selection:text-ivory">
+      {/* Section A — Announcement Bar */}
+      <AnnouncementBar />
 
-      {/* Hero Section */}
-      <Hero onOpenBooking={() => handleOpenBooking()} />
+      {/* Section B — Navigation Header */}
+      <Header />
 
-      {/* Brand Philosophy: "BEAUTY IS NOT A TEMPLATE." */}
-      <BrandIntro />
+      {/* Section C — Editorial Hero */}
+      <HeroSection />
 
-      {/* Immersive Haute Services Collection Explorer */}
-      <ServicesExplorer onOpenBooking={handleOpenBooking} />
+      {/* Section D — Brand Introduction */}
+      <BrandIntroduction />
 
-      {/* The 5-Stage Signature Experience Journey */}
-      <SignatureExperience />
+      {/* Section E — Shop the Collection */}
+      <ProductGrid onSelectProduct={(p) => setSelectedProduct(p)} />
 
-      {/* Interactive Before / After Metamorphosis Slider */}
-      <Transformation />
+      {/* Section F — Featured Artisanal Product */}
+      <FeaturedProduct onSelectProduct={(p) => setSelectedProduct(p)} />
 
-      {/* Asymmetrical Editorial Magazine Portfolio */}
-      <EditorialPortfolio />
+      {/* Section G — The Maker's Story */}
+      <MakerStory />
 
-      {/* Craftsmanship: Macro Beauty Details Gallery */}
-      <BeautyDetails />
+      {/* Section H — Ingredients & Craftsmanship */}
+      <IngredientsSection />
 
-      {/* The Artist Behind The Transformation */}
-      <ArtistStory onOpenBooking={() => handleOpenBooking()} />
+      {/* Section I — Gift Collections */}
+      <GiftCollection />
 
-      {/* Editorial Typographic Testimonials */}
-      <Testimonials />
+      {/* Section J — Customer Feedback */}
+      <CustomerFeedback />
 
-      {/* Dedicated Concierge Multi-Step Booking Section */}
-      <BookingExperience />
+      {/* Section K — FAQ Accordion */}
+      <FAQAccordion />
 
-      {/* Atelier Contact & Inquiries */}
-      <ContactConcierge onOpenBooking={() => handleOpenBooking()} />
-
-      {/* Footer Colophon */}
+      {/* Section L — Footer */}
       <Footer />
 
-      {/* Modal Booking Overlay when triggered from Hero/Nav/Services */}
-      {modalBookingOpen && (
-        <BookingExperience
-          isModal={true}
-          initialServiceId={selectedServiceIdForModal}
-          onCloseModal={handleCloseBooking}
-        />
-      )}
+      {/* Product Detail Modal */}
+      <ProductDetailModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </main>
   );
 }

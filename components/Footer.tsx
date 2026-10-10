@@ -1,190 +1,102 @@
-"use client";
+import React from 'react';
+import { siteConfig, getWhatsAppGeneralUrl } from '../config/site';
 
-import React, { useState, useEffect } from "react";
-import { ArrowUp, Sparkles } from "lucide-react";
-
-export function Footer() {
-  const [timeNY, setTimeNY] = useState("");
-  const [timeParis, setTimeParis] = useState("");
-
-  useEffect(() => {
-    const updateClocks = () => {
-      const now = new Date();
-      setTimeNY(
-        now.toLocaleTimeString("en-US", {
-          timeZone: "America/New_York",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: true,
-        })
-      );
-      setTimeParis(
-        now.toLocaleTimeString("fr-FR", {
-          timeZone: "Europe/Paris",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
-      );
-    };
-
-    updateClocks();
-    const interval = setInterval(updateClocks, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+export const Footer: React.FC = () => {
+  const whatsappUrl = getWhatsAppGeneralUrl("General Inquiry");
 
   return (
-    <footer className="relative w-full overflow-hidden bg-noir pt-24 pb-12 text-canvas-light selection:bg-champagne selection:text-noir border-t border-champagne/20">
-      {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(197,168,128,0.12)_0%,transparent_60%)]" />
-
-      <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-12 md:px-16">
-        {/* Large Final Brand Statement */}
-        <div className="border-b border-champagne/20 pb-16">
-          <div className="flex items-center gap-2.5 text-[10px] font-sans tracking-[0.35em] text-champagne uppercase mb-4">
-            <Sparkles className="h-3 w-3 text-champagne" />
-            <span>THE FINAL COLOPHON</span>
-          </div>
-
-          <h2 className="font-editorial text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-light text-canvas-light tracking-tight leading-[0.92]">
-            BEAUTY, <br />
-            <span className="font-serif-italic text-champagne">WITH INTENTION.</span>
-          </h2>
-        </div>
-
-        {/* Multi-column architectural links & studio clocks */}
-        <div className="mt-16 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-10 text-xs font-sans">
-          {/* Col 1: Brand */}
-          <div className="col-span-2 space-y-4">
-            <span className="font-editorial text-2xl tracking-[0.2em] text-canvas-light font-medium block">
-              LUCKYGLAMOURS
-            </span>
-            <p className="font-sans text-xs text-canvas-light/65 max-w-sm font-light leading-relaxed">
-              Haute Beauté & Aesthetic Sanctuary. Transforming facial architecture through classical French artistry, biological dermal precision, and modern editorial discipline.
+    <footer id="footer" className="bg-charcoal text-ivory pt-16 pb-12 border-t border-charcoal-light">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-charcoal-muted/40">
+          
+          {/* Brand Info Column */}
+          <div className="md:col-span-5 space-y-4">
+            <a href="#hero" className="inline-block">
+              <span className="font-serif text-2xl sm:text-3xl text-ivory tracking-wide font-medium">
+                LUCKY GLAMOURS
+              </span>
+              <span className="font-sans text-[10px] tracking-[0.25em] uppercase text-sage/70 block mt-1">
+                Botanical Skincare & Artisan Oils
+              </span>
+            </a>
+            <p className="font-sans text-xs text-ivory/70 leading-relaxed max-w-sm font-light">
+              Handcrafted small-batch soaps and slow-infused botanical hair & body oils. Made with cold-pressed oils, unrefined shea butter, and organic botanicals.
             </p>
-
-            {/* Atelier Live Clocks */}
-            <div className="flex items-center gap-6 pt-2 font-mono text-[11px] text-champagne">
-              <div>
-                <span className="block text-[9px] text-canvas-light/50 tracking-widest uppercase">
-                  NEW YORK ATELIER
-                </span>
-                <span>{timeNY || "10:30 AM EST"}</span>
-              </div>
-              <div className="h-6 w-[1px] bg-champagne/30" />
-              <div>
-                <span className="block text-[9px] text-canvas-light/50 tracking-widest uppercase">
-                  PARIS RESIDENCY
-                </span>
-                <span>{timeParis || "16:30 CET"}</span>
-              </div>
+            <div className="text-xs font-sans text-sage/80 pt-2">
+              <span>{siteConfig.locationPlaceholder}</span>
             </div>
           </div>
 
-          {/* Col 2: Atelier Nav */}
-          <div className="space-y-3">
-            <span className="font-sans text-[10px] tracking-widest text-champagne uppercase font-bold block">
-              ATELIER
-            </span>
-            <ul className="space-y-2 text-canvas-light/70">
+          {/* Quick Navigation Links */}
+          <div className="md:col-span-3 space-y-3">
+            <h3 className="font-serif text-base font-medium text-ivory uppercase tracking-wider text-sage">
+              Navigation
+            </h3>
+            <ul className="space-y-2 text-xs font-sans text-ivory/80">
               <li>
-                <a href="#philosophy" className="hover:text-champagne transition-colors">
-                  Philosophy
-                </a>
+                <a href="#hero" className="hover:text-sage transition-colors">Home</a>
               </li>
               <li>
-                <a href="#services" className="hover:text-champagne transition-colors">
-                  Haute Services
-                </a>
+                <a href="#shop" className="hover:text-sage transition-colors">Shop Collection</a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-champagne transition-colors">
-                  The Signature Journey
-                </a>
+                <a href="#story" className="hover:text-sage transition-colors">Our Story</a>
               </li>
               <li>
-                <a href="#transformation" className="hover:text-champagne transition-colors">
-                  Metamorphosis Before & After
-                </a>
+                <a href="#ingredients" className="hover:text-sage transition-colors">Botanical Ingredients</a>
+              </li>
+              <li>
+                <a href="#gifting" className="hover:text-sage transition-colors">Gift Sets</a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-sage transition-colors">Frequently Asked Questions</a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Experience */}
-          <div className="space-y-3">
-            <span className="font-sans text-[10px] tracking-widest text-champagne uppercase font-bold block">
-              ARCHIVE
-            </span>
-            <ul className="space-y-2 text-canvas-light/70">
-              <li>
-                <a href="#portfolio" className="hover:text-champagne transition-colors">
-                  Editorial Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#craftsmanship" className="hover:text-champagne transition-colors">
-                  Craftsmanship Details
-                </a>
-              </li>
-              <li>
-                <a href="#artist" className="hover:text-champagne transition-colors">
-                  The Artist
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-champagne transition-colors">
-                  Private Concierge
-                </a>
-              </li>
-            </ul>
+          {/* Contact & Orders */}
+          <div className="md:col-span-4 space-y-4">
+            <h3 className="font-serif text-base font-medium text-ivory uppercase tracking-wider text-sage">
+              Orders & Contact
+            </h3>
+            <p className="font-sans text-xs text-ivory/70 leading-relaxed font-light">
+              We process all customer inquiries and batch orders directly on WhatsApp for personal attention.
+            </p>
+
+            <div>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-olive hover:bg-olive-light text-ivory text-xs uppercase tracking-widest font-semibold px-5 py-3 rounded-sm transition-colors shadow-sm"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                </svg>
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+
+            <div className="pt-2 text-xs font-sans text-ivory/60 space-y-1">
+              <p>Email: <a href={`mailto:${siteConfig.email}`} className="underline hover:text-ivory">{siteConfig.email}</a></p>
+              <p>Instagram: <a href={siteConfig.instagramUrl} target="_blank" rel="noopener noreferrer" className="underline hover:text-ivory">@luckyglamours</a> (Placeholder)</p>
+            </div>
           </div>
 
-          {/* Col 4: Sanctuaries & Social */}
-          <div className="space-y-3">
-            <span className="font-sans text-[10px] tracking-widest text-champagne uppercase font-bold block">
-              SANCTUARIES
-            </span>
-            <ul className="space-y-2 text-canvas-light/70">
-              <li>742 Madison Ave, New York</li>
-              <li>18 Place Vendôme, Paris</li>
-              <li>Via Montenapoleone, Milan</li>
-              <li className="pt-2">
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-champagne hover:underline inline-flex items-center gap-1"
-                >
-                  Instagram @luckyglamours
-                </a>
-              </li>
-            </ul>
+        </div>
+
+        {/* Footer Bottom Legal & Copyright */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-sans text-ivory/50">
+          <p>© {new Date().getFullYear()} Lucky Glamours. Handcrafted Botanical Skincare.</p>
+          <div className="flex items-center space-x-6">
+            <span className="hover:text-ivory cursor-pointer">Privacy Policy</span>
+            <span className="hover:text-ivory cursor-pointer">Shipping & Delivery</span>
+            <span className="hover:text-ivory cursor-pointer">Terms of Service</span>
           </div>
         </div>
 
-        {/* Bottom Bar & Scroll to Top */}
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-champagne/20 pt-8 text-[11px] font-sans text-canvas-light/50">
-          <div className="flex items-center gap-6">
-            <span>© {new Date().getFullYear()} LUCKYGLAMOURS HAUTE BEAUTÉ ATELIER.</span>
-            <span className="hidden sm:inline">ALL RIGHTS RESERVED.</span>
-          </div>
-
-          <div className="flex items-center gap-6">
-            <button
-              onClick={scrollToTop}
-              className="flex items-center gap-2 text-champagne hover:text-canvas-light transition-colors"
-              data-cursor="TOP"
-            >
-              <span>RETURN TO TOP</span>
-              <ArrowUp className="h-3.5 w-3.5" />
-            </button>
-          </div>
-        </div>
       </div>
     </footer>
   );
-}
+};

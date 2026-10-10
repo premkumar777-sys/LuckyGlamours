@@ -8,53 +8,44 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        canvas: {
-          light: '#FAF8F5',
-          cream: '#F4EFEA',
-          sand: '#EBE3DA',
-          muted: '#E2D8CC',
+        ivory: {
+          DEFAULT: '#F7F3EA',
+          light: '#FAF8F3',
+          dark: '#EFEAE0',
+          canvas: '#F7F3EA',
         },
-        noir: {
-          DEFAULT: '#0E0D0C',
-          light: '#1A1817',
-          surface: '#24211F',
-          border: '#332F2B',
+        sage: {
+          DEFAULT: '#D9D9C5',
+          light: '#E8E8DA',
+          dark: '#C4C4AF',
+          muted: '#C8C8B4',
         },
-        champagne: {
-          DEFAULT: '#C5A880',
-          light: '#DECBB3',
-          dark: '#A5855C',
-          subtle: '#F1E8DC',
+        olive: {
+          DEFAULT: '#72785A',
+          light: '#8B926E',
+          dark: '#595E46',
+          accent: '#72785A',
         },
-        gold: {
-          DEFAULT: '#D4AF37',
-          muted: '#B89758',
-          accent: '#E6CA65',
+        earth: {
+          DEFAULT: '#654638',
+          light: '#7F5B4B',
+          dark: '#4D3429',
         },
-        rose: {
-          nude: '#E8D5CE',
-          blush: '#DFC0B5',
-          dusty: '#B08E83',
-        }
+        charcoal: {
+          DEFAULT: '#282720',
+          light: '#3D3B31',
+          muted: '#525043',
+          dark: '#1A1915',
+        },
       },
       fontFamily: {
-        editorial: ['"Cormorant Garamond"', 'Playfair Display', 'Didot', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+        serif: ['"Cormorant Garamond"', 'Playfair Display', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', '"Manrope"', '-apple-system', 'sans-serif'],
       },
       letterSpacing: {
-        'ultra-wide': '0.25em',
-        'mega-wide': '0.35em',
+        'widest-editorial': '0.2em',
+        'super-wide': '0.3em',
       },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float': 'float 6s ease-in-out infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-8px)' },
-        }
-      }
     },
   },
   plugins: [],

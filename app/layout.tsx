@@ -3,28 +3,29 @@ import "./globals.css";
 import { OpeningCurtain } from "../components/ui/OpeningCurtain";
 
 export const viewport: Viewport = {
-  themeColor: "#0E0D0C",
+  themeColor: "#F7F3EA",
   width: "device-width",
   initialScale: 1,
 };
 
 export const metadata: Metadata = {
-  title: "LuckyGlamours — Haute Beauté & Aesthetic Atelier",
+  title: "Lucky Glamours — Haute Botanical Skincare & Artisan Oils",
   description:
-    "An original, ultra-luxury digital brand experience for LuckyGlamours. Haute couture bridal, red carpet aesthetic sculpting, and biological dermal luminescence.",
+    "Handcrafted small-batch cold-process soaps and slow-infused botanical hair and body oils. Made with cold-pressed plant oils, unrefined shea butter, and natural herbs.",
   keywords: [
-    "haute beautician",
-    "luxury beauty studio",
-    "couture bridal makeup",
-    "editorial makeup artist",
-    "LuckyGlamours",
-    "brow architecture",
-    "glass skin treatment",
+    "handmade soap",
+    "cold process soap",
+    "botanical skincare",
+    "hair oil",
+    "body oil",
+    "Lucky Glamours",
+    "artisan soap bar",
+    "natural skincare India",
   ],
   openGraph: {
-    title: "LuckyGlamours — Haute Beauté & Aesthetic Atelier",
+    title: "Lucky Glamours — Haute Botanical Skincare & Artisan Oils",
     description:
-      "Where artistry, precision and individuality converge. Discover the transformative world of LuckyGlamours.",
+      "Discover handmade soaps and thoughtfully crafted oils for your everyday self-care rituals.",
     type: "website",
   },
 };
@@ -44,8 +45,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-canvas-light text-noir font-sans antialiased selection:bg-noir selection:text-canvas-light relative min-h-screen">
-        <div className="pointer-events-none fixed inset-0 z-40 editorial-grain opacity-40" />
+      <body className="bg-ivory text-charcoal font-sans antialiased selection:bg-olive selection:text-ivory relative min-h-screen">
         <OpeningCurtain />
         {children}
       </body>
