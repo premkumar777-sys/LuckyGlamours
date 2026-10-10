@@ -6,12 +6,10 @@ import { getWhatsAppServiceUrl } from '../config/site';
 import { ImagePlaceholder } from './ui/ImagePlaceholder';
 
 export const BeautyServices: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeCategory, setActiveCategory] = useState<string>('bridal-groom');
   const [selectedService, setSelectedService] = useState<BeautyService | null>(null);
 
-  const filteredServices = activeCategory === 'all'
-    ? BEAUTY_SERVICES
-    : BEAUTY_SERVICES.filter((s) => s.category === activeCategory);
+  const filteredServices = BEAUTY_SERVICES.filter((s) => s.category === activeCategory);
 
   return (
     <section id="services" className="py-16 md:py-24 bg-ivory border-b border-sage/40">

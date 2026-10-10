@@ -23,6 +23,14 @@ export const metadata: Metadata = {
     "hair oil",
     "Lucky Glamours",
   ],
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/logo.jpg", type: "image/jpeg" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/logo.jpg",
+  },
   openGraph: {
     title: "Lucky Glamours — Beauty Artistry, Bridal, Academy & Botanical Skincare",
     description:
@@ -39,6 +47,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.jpg" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

@@ -7,6 +7,7 @@ export interface SiteConfig {
   whatsappDisplayNumber: string;
   email: string;
   instagramUrl: string;
+  youtubeUrl: string;
   locationPlaceholder: string;
 }
 
@@ -16,12 +17,13 @@ export const siteConfig: SiteConfig = {
   subTagline: "Professional makeup artistry, bridal styling, skill training courses, and handcrafted botanical soaps & oils.",
   announcement: "Beauty, artistry & handcrafted self-care",
   
-  // EDITABLE: Replace this with the actual business WhatsApp number (e.g., '91XXXXXXXXXX')
-  whatsappNumber: "919876543210", 
-  whatsappDisplayNumber: "+91 98765 43210 (Configure your number in config/site.ts)",
+  // WhatsApp business number: 9347647145 (+919347647145)
+  whatsappNumber: "919347647145", 
+  whatsappDisplayNumber: "+91 93476 47145",
   
   email: "hello@luckyglamours.com",
-  instagramUrl: "https://instagram.com/luckyglamours",
+  instagramUrl: "https://www.instagram.com/luckyglamours_",
+  youtubeUrl: "https://www.youtube.com/@luckyglamous",
   locationPlaceholder: "India · Studio & On-Location Bridal Services · Nationwide Dispatch for Oils & Soaps",
 };
 

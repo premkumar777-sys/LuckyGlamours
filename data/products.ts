@@ -184,7 +184,6 @@ export const PRODUCTS_CATALOG: Product[] = [
 ];
 
 export const CATEGORIES = [
-  { id: 'all', label: 'All Products' },
   { id: 'soaps', label: 'Handmade Soaps' },
   { id: 'hair-oils', label: 'Hair Oils' },
   { id: 'body-oils', label: 'Body Oils' },

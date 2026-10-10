@@ -12,17 +12,17 @@ export interface BeautyService {
 
 export const BEAUTY_SERVICES: BeautyService[] = [
   {
-    id: "bridal-makeup",
-    name: "Couture Bridal Makeup",
+    id: "bridal-engagement-makeup",
+    name: "Couture Bridal & Engagement Makeup",
     category: "bridal-groom",
     categoryLabel: "Bridal & Groom",
-    description: "Signature HD & airbrush bridal makeup with customized skin prep, lash setting, and saree/dupatta draping.",
-    occasion: "Main Wedding Ceremony",
+    description: "Signature HD & airbrush makeup tailored for bridal ceremonies, engagement functions, and ring events.",
+    occasion: "Wedding & Engagement Ceremonies",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "HD / Airbrush bridal makeup & skin prep",
-      "Hair styling & floral hair placement",
-      "Saree / lehenga dupatta draping",
+      "HD / Airbrush bridal & engagement makeup",
+      "Hair styling & accessory / floral placement",
+      "Saree, lehenga & dupatta draping",
       "Eyelash application & touch-up kit"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
@@ -39,21 +39,6 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Hydrating skin prep & tone evening",
       "Anti-shine matte finish for photos",
       "Beard alignment & hair setting"
-    ],
-    placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
-  },
-  {
-    id: "engagement-makeup",
-    name: "Engagement Makeup",
-    category: "bridal-groom",
-    categoryLabel: "Bridal & Groom",
-    description: "Radiant, romantic makeup look tailored to complement your ring ceremony gown or lehenga.",
-    occasion: "Engagement Ceremony",
-    startingPrice: "Enquire for pricing",
-    packageDetails: [
-      "Luminous skin finish & eye sculpting",
-      "Hair styling & accessory setting",
-      "Outfit draping assistance"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
   },
@@ -135,7 +120,6 @@ export const BEAUTY_SERVICES: BeautyService[] = [
 ];
 
 export const SERVICE_CATEGORIES = [
-  { id: 'all', label: 'All Services' },
   { id: 'bridal-groom', label: 'Bridal & Groom' },
   { id: 'occasion', label: 'Party & Occasions' },
   { id: 'photoshoot', label: 'Pre-Wedding & Shoots' },

@@ -17,13 +17,6 @@ export const HeroSection: React.FC = () => {
           
           {/* Text Content Column */}
           <div className="lg:col-span-6 space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-sage-light/60 border border-sage/80 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-olive" />
-              <span className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-super-wide uppercase text-earth">
-                BEAUTY • BRIDAL • BOTANICAL SELF-CARE
-              </span>
-            </div>
-
             <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl tracking-tight text-charcoal font-normal leading-[1.12]">
               Your beauty, <br className="hidden sm:block" />
               <span className="italic font-serif text-olive">beautifully expressed.</span>

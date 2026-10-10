@@ -9,11 +9,9 @@ export interface ProductGridProps {
 }
 
 export const ProductGrid: React.FC<ProductGridProps> = ({ onSelectProduct }) => {
-  const [activeCategory, setActiveCategory] = useState<string>('all');
+  const [activeCategory, setActiveCategory] = useState<string>('soaps');
 
-  const filteredProducts = activeCategory === 'all'
-    ? PRODUCTS_CATALOG
-    : PRODUCTS_CATALOG.filter((p) => p.category === activeCategory);
+  const filteredProducts = PRODUCTS_CATALOG.filter((p) => p.category === activeCategory);
 
   return (
     <section id="shop" className="py-16 md:py-24 bg-ivory border-b border-sage/40">
