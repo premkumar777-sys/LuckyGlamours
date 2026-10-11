@@ -59,7 +59,9 @@ export const MakerStory: React.FC = () => {
               <ImagePlaceholder
                 label="[FOUNDER PHOTOGRAPH]"
                 aspectRatio="portrait"
-                subText="Founder portrait in beauty studio / atelier"
+                src="/images/founder.jpg"
+                altText="Founder of Lucky Glamours"
+                subText="Founder & Lead Artist at Lucky Glamours"
               />
             </div>
             <div className="p-2 bg-ivory border border-sage/60 rounded-sm">
