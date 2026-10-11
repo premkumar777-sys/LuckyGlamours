@@ -9,6 +9,7 @@ export interface BeautyCourse {
   eligibility: string;
   fees: string; // Defaulting to "Contact us for course fees"
   placeholderLabel: string;
+  imageUrl?: string;
 }
 
 export const ACADEMY_COURSES: BeautyCourse[] = [
@@ -28,6 +29,7 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     eligibility: "Open to beginners & beauty enthusiasts",
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bride_portrait.jpeg",
   },
   {
     id: "basic-makeup-techniques",
@@ -45,6 +47,7 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     eligibility: "Open to anyone seeking personal makeup mastery",
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bride_thali.jpeg",
   },
   {
     id: "master-bridal-makeup",
@@ -62,5 +65,6 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     eligibility: "Basic makeup knowledge recommended",
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bridal_hairstyle.jpeg",
   }
 ];

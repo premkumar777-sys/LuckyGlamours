@@ -57,6 +57,8 @@ export const MakeupPortfolio: React.FC = () => {
                 <ImagePlaceholder
                   label={item.placeholderLabel}
                   aspectRatio="portrait"
+                  src={item.imageUrl}
+                  altText={item.label}
                   subText={`Portfolio placeholder for ${item.label}`}
                 />
               </div>

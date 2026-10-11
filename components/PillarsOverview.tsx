@@ -37,6 +37,8 @@ export const PillarsOverview: React.FC = () => {
                 <ImagePlaceholder
                   label="[BEAUTY SERVICES PHOTOGRAPH]"
                   aspectRatio="landscape"
+                  src="/images/bridal/bride_thali.jpeg"
+                  altText="Personalized occasion makeup and festive styling"
                   subText="Personalized makeup styling for party, gala & special occasions"
                 />
               </div>
@@ -68,6 +70,8 @@ export const PillarsOverview: React.FC = () => {
                 <ImagePlaceholder
                   label="[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]"
                   aspectRatio="landscape"
+                  src="/images/bridal/wedding_couple.jpeg"
+                  altText="Couture bridal & groom wedding styling by Lucky Glamours"
                   subText="Bridal & groom couture makeup styling for wedding ceremonies"
                 />
               </div>
@@ -99,6 +103,8 @@ export const PillarsOverview: React.FC = () => {
                 <ImagePlaceholder
                   label="[BEAUTY TRAINING PHOTOGRAPH]"
                   aspectRatio="landscape"
+                  src="/images/bridal/bridal_hairstyle.jpeg"
+                  altText="Practical hands-on beauty training & styling"
                   subText="Hands-on beauty training & professional skill development classes"
                 />
               </div>

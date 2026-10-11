@@ -17,20 +17,6 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   altText,
   subText = 'Image placeholder for future product photograph',
 }) => {
-  // If an actual image source is provided in the future, render it directly
-  if (src) {
-    return (
-      <div className={`relative overflow-hidden rounded-sm bg-ivory ${className}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={altText || label}
-          className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
-        />
-      </div>
-    );
-  }
-
   // Aspect ratio helper classes
   const aspectClasses = {
     square: 'aspect-square',
@@ -40,6 +26,21 @@ export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
     hero: 'aspect-[4/3] md:aspect-[16/10]',
     auto: 'h-full min-h-[220px]',
   }[aspectRatio];
+
+  // If an actual image source is provided in the future, render it directly
+  if (src) {
+    return (
+      <div className={`relative overflow-hidden rounded-sm bg-ivory ${aspectClasses} ${className}`}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={src}
+          alt={altText || label}
+          className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
 
   return (
     <div

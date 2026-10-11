@@ -66,7 +66,9 @@ export const MakerStory: React.FC = () => {
               <ImagePlaceholder
                 label="[BEAUTY WORK PROCESS PHOTOGRAPH]"
                 aspectRatio="portrait"
-                subText="Artist applying bridal makeup & hair styling"
+                src="/images/bridal/bridal_hairstyle.jpeg"
+                altText="Traditional bridal hair styling artistry"
+                subText="Artist applying bridal hair styling and ornamentation"
               />
             </div>
           </div>

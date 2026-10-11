@@ -70,6 +70,8 @@ export const BeautyServices: React.FC = () => {
                     <ImagePlaceholder
                       label={service.placeholderLabel}
                       aspectRatio="landscape"
+                      src={service.imageUrl}
+                      altText={service.name}
                       subText={`Image placeholder for ${service.name}`}
                     />
                   </div>
@@ -165,6 +167,8 @@ export const BeautyServices: React.FC = () => {
                 <ImagePlaceholder
                   label={selectedService.placeholderLabel}
                   aspectRatio="landscape"
+                  src={selectedService.imageUrl}
+                  altText={selectedService.name}
                   subText={`Placeholder for ${selectedService.name}`}
                 />
                 <p className="text-xs text-charcoal/80 leading-relaxed font-light">{selectedService.description}</p>

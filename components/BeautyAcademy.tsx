@@ -44,6 +44,8 @@ export const BeautyAcademy: React.FC = () => {
                     <ImagePlaceholder
                       label={course.placeholderLabel}
                       aspectRatio="landscape"
+                      src={course.imageUrl}
+                      altText={course.name}
                       subText={`Image placeholder for ${course.name} course`}
                     />
                   </div>
@@ -138,6 +140,8 @@ export const BeautyAcademy: React.FC = () => {
                 <ImagePlaceholder
                   label={selectedCourse.placeholderLabel}
                   aspectRatio="landscape"
+                  src={selectedCourse.imageUrl}
+                  altText={selectedCourse.name}
                   subText={`Detailed training placeholder for ${selectedCourse.name}`}
                 />
                 <p className="text-sm leading-relaxed">{selectedCourse.description}</p>

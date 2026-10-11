@@ -8,6 +8,7 @@ export interface BeautyService {
   startingPrice?: string; // e.g. "Enquire for pricing" or "₹15,000 onwards"
   packageDetails?: string[];
   placeholderLabel: string;
+  imageUrl?: string;
 }
 
 export const BEAUTY_SERVICES: BeautyService[] = [
@@ -26,6 +27,7 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Eyelash application & touch-up kit"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bride_portrait.jpeg",
   },
   {
     id: "groom-makeup-grooming",
@@ -41,6 +43,7 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Beard alignment & hair setting"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
+    imageUrl: "/images/bridal/wedding_couple.jpeg",
   },
   {
     id: "reception-makeup",
@@ -56,6 +59,7 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Hairstyling & veil / dupatta setting"
     ],
     placeholderLabel: "[BRIDAL AND GROOM MAKEUP PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bride_thali.jpeg",
   },
   {
     id: "party-makeup",
@@ -71,6 +75,7 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Optional lash application"
     ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bride_thali.jpeg",
   },
   {
     id: "wedding-guest-makeup",
@@ -86,6 +91,7 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Dupatta pinning assistance"
     ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bride_portrait.jpeg",
   },
   {
     id: "pre-wedding-photoshoot",
@@ -101,21 +107,23 @@ export const BEAUTY_SERVICES: BeautyService[] = [
       "Hair setting for outdoor weather"
     ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
+    imageUrl: "/images/bridal/wedding_couple_alt.jpeg",
   },
   {
     id: "special-event-makeup",
-    name: "Special Occasion & Editorial Makeup",
+    name: "Bridal Hair Artistry & Special Styling",
     category: "photoshoot",
     categoryLabel: "Pre-Wedding & Shoots",
-    description: "Bespoke high-fashion and media makeup for portfolio shoots, awards, and editorial events.",
-    occasion: "Editorial & Media Events",
+    description: "Bespoke traditional hair styling, intricate floral poola jada, and media makeup for celebrations.",
+    occasion: "Ceremonies & Editorial Events",
     startingPrice: "Enquire for pricing",
     packageDetails: [
-      "High-fashion editorial makeup",
-      "Theme-based hair styling",
-      "Photography lighting optimization"
+      "Intricate floral braid (poola jada)",
+      "Traditional hair ornamentation setting",
+      "Saree draping and veil pinning"
     ],
     placeholderLabel: "[BEAUTY SERVICES PHOTOGRAPH]",
+    imageUrl: "/images/bridal/bridal_hairstyle.jpeg",
   }
 ];
 

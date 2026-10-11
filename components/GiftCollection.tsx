@@ -17,6 +17,8 @@ export const GiftCollection: React.FC = () => {
               <ImagePlaceholder
                 label="[GIFT SET PHOTOGRAPH]"
                 aspectRatio="square"
+                src="/images/products/lucky_herbal_soaps_real.jpeg"
+                altText="Lucky Herbal handcrafted artisan soap bars and botanical gift sets"
                 subText="Artisanal wooden gift box with ribbon tie containing cold-process soap bars & body oil"
               />
             </div>

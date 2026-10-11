@@ -78,7 +78,9 @@ export const HeroSection: React.FC = () => {
                 label="[HERO BEAUTY PHOTOGRAPH]"
                 aspectRatio="hero"
                 className="shadow-sm"
-                subText="Editorial hero photograph showcasing bridal makeup artistry & botanical self-care"
+                src="/images/bridal/bride_portrait.jpeg"
+                altText="Lucky Glamours Couture Bridal Styling"
+                subText="Editorial photograph showcasing signature bridal makeup artistry & styling"
               />
             </div>
           </div>
