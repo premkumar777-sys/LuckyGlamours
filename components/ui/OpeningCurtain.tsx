@@ -28,22 +28,39 @@ export function OpeningCurtain() {
           onClick={() => setIsOpen(false)}
         >
           <div className="relative z-10 flex flex-col items-center text-center px-6 space-y-4">
-            {/* Monogram Crest */}
+            {/* Logo Animation */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-sage bg-ivory-light shadow-xs"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: [0.8, 1.04, 1], opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="relative flex items-center justify-center"
             >
-              <span className="font-serif text-xl tracking-wider text-olive font-medium">LG</span>
+              {/* Subtle ambient glow pulse behind logo */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.15, 1],
+                  opacity: [0.25, 0.5, 0.25],
+                }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -inset-2 rounded-full bg-olive/25 blur-md pointer-events-none"
+              />
+
+              {/* Circular Logo Image */}
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden border-2 border-sage-dark/40 shadow-md bg-ivory-light">
+                <img
+                  src="/logo.jpg"
+                  alt="Lucky Glamours Logo"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
             </motion.div>
 
             {/* Brand Title */}
             <motion.h1
               initial={{ y: 15, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-serif text-3xl sm:text-5xl font-medium tracking-wide text-charcoal uppercase"
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="font-serif text-3xl sm:text-4xl font-medium tracking-wide text-charcoal uppercase"
             >
               LUCKY GLAMOURS
             </motion.h1>
@@ -52,10 +69,10 @@ export function OpeningCurtain() {
             <motion.p
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 0.9 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
               className="font-sans text-xs tracking-[0.25em] text-earth uppercase max-w-lg"
             >
-              BOTANICAL SKINCARE & ARTISAN OILS
+              BEAUTY ARTISTRY · ACADEMY · BOTANICALS
             </motion.p>
           </div>
         </motion.div>

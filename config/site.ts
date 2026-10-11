@@ -23,7 +23,7 @@ export const siteConfig: SiteConfig = {
   
   email: "hello@luckyglamours.com",
   instagramUrl: "https://www.instagram.com/luckyglamours_",
-  youtubeUrl: "https://www.youtube.com/@luckyglamous",
+  youtubeUrl: "https://www.youtube.com/@luckyglamours",
   locationPlaceholder: "India · Studio & On-Location Bridal Services · Nationwide Dispatch for Oils & Soaps",
 };
 
