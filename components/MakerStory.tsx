@@ -15,7 +15,7 @@ export const MakerStory: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
           
           {/* Narrative Copy Column */}
           <div className="lg:col-span-6 space-y-6">
@@ -53,7 +53,7 @@ export const MakerStory: React.FC = () => {
             </div>
           </div>
 
-          {/* Founder & Work Process Placeholders */}
+          {/* Founder & Work Process Placeholders (Preserved) */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-2 bg-ivory border border-sage/60 rounded-sm">
               <ImagePlaceholder
@@ -75,6 +75,77 @@ export const MakerStory: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* Real Client Moments Showcase Strip */}
+        <div className="pt-8 border-t border-sage/40">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+            <div>
+              <span className="font-sans text-[10px] uppercase tracking-widest text-earth font-semibold block">
+                AUTHENTIC PORTFOLIO ARCHIVE
+              </span>
+              <h3 className="font-serif text-2xl font-medium text-charcoal">
+                Celebrated Moments by Lucky Glamours
+              </h3>
+            </div>
+            <span className="text-xs font-sans text-earth">
+              Bridal, Muhurtham, Haldi & Reception Client Works
+            </span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="group bg-ivory border border-sage/60 rounded-sm overflow-hidden p-2 hover:border-olive/60 transition-colors">
+              <div className="aspect-[3/4] overflow-hidden rounded-xs bg-ivory-dark/20 mb-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/LuckyGlamours/traditional_bride_pink_teal_kanjeevaram.jpeg"
+                  alt="Traditional South Indian Bride by Lucky Glamours"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span className="block font-serif text-xs font-medium text-charcoal truncate">Traditional Muhurtham</span>
+              <span className="block text-[10px] font-sans text-earth">Kanjeevaram Saree & Temple Jewels</span>
+            </div>
+
+            <div className="group bg-ivory border border-sage/60 rounded-sm overflow-hidden p-2 hover:border-olive/60 transition-colors">
+              <div className="aspect-[3/4] overflow-hidden rounded-xs bg-ivory-dark/20 mb-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/LuckyGlamours/wedding_couple_forehead_stage.jpeg"
+                  alt="Wedding Mandap Sacred Moment by Lucky Glamours"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span className="block font-serif text-xs font-medium text-charcoal truncate">Sacred Stage Moment</span>
+              <span className="block text-[10px] font-sans text-earth">Mandap Couple Styling</span>
+            </div>
+
+            <div className="group bg-ivory border border-sage/60 rounded-sm overflow-hidden p-2 hover:border-olive/60 transition-colors">
+              <div className="aspect-[3/4] overflow-hidden rounded-xs bg-ivory-dark/20 mb-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/LuckyGlamours/haldi_mehendi_bride_yellow.jpeg"
+                  alt="Haldi Ceremony Glow by Lucky Glamours"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span className="block font-serif text-xs font-medium text-charcoal truncate">Haldi & Mehendi Ritual</span>
+              <span className="block text-[10px] font-sans text-earth">Dewy Sunlit Glamour</span>
+            </div>
+
+            <div className="group bg-ivory border border-sage/60 rounded-sm overflow-hidden p-2 hover:border-olive/60 transition-colors">
+              <div className="aspect-[3/4] overflow-hidden rounded-xs bg-ivory-dark/20 mb-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/LuckyGlamours/reception_couple_navy_blue.jpeg"
+                  alt="Midnight Navy Reception Couple by Lucky Glamours"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <span className="block font-serif text-xs font-medium text-charcoal truncate">Gala Reception Couple</span>
+              <span className="block text-[10px] font-sans text-earth">High-Definition Evening Glam</span>
+            </div>
+          </div>
         </div>
 
       </div>

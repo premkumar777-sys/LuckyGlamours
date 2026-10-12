@@ -10,6 +10,7 @@ export interface BeautyCourse {
   fees: string; // Defaulting to "Contact us for course fees"
   placeholderLabel: string;
   imageUrl?: string;
+  galleryImages?: string[];
 }
 
 export const ACADEMY_COURSES: BeautyCourse[] = [
@@ -30,6 +31,11 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
     imageUrl: "/images/bridal/bride_portrait.jpeg",
+    galleryImages: [
+      "/images/bridal/bride_portrait.jpeg",
+      "/images/LuckyGlamours/haldi_bride_candid_portrait.jpeg",
+      "/images/LuckyGlamours/bride_temple_jewellery_stage.jpeg"
+    ]
   },
   {
     id: "basic-makeup-techniques",
@@ -48,6 +54,12 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
     imageUrl: "/images/bridal/bride_thali.jpeg",
+    galleryImages: [
+      "/images/bridal/bride_thali.jpeg",
+      "/images/LuckyGlamours/south_indian_bride_silk_saree.jpeg",
+      "/images/LuckyGlamours/haldi_bride_maang_tikka.jpeg",
+      "/images/LuckyGlamours/trendy_bride_sunglasses.jpeg"
+    ]
   },
   {
     id: "master-bridal-makeup",
@@ -66,5 +78,11 @@ export const ACADEMY_COURSES: BeautyCourse[] = [
     fees: "Contact us for course details",
     placeholderLabel: "[COURSE PHOTOGRAPH]",
     imageUrl: "/images/bridal/bridal_hairstyle.jpeg",
+    galleryImages: [
+      "/images/bridal/bridal_hairstyle.jpeg",
+      "/images/LuckyGlamours/traditional_bride_pink_teal_kanjeevaram.jpeg",
+      "/images/LuckyGlamours/bridal_floral_braid_poola_jada.jpeg",
+      "/images/LuckyGlamours/wedding_couple_forehead_stage.jpeg"
+    ]
   }
 ];

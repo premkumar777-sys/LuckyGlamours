@@ -7,6 +7,12 @@ import { ImagePlaceholder } from './ui/ImagePlaceholder';
 
 export const BeautyAcademy: React.FC = () => {
   const [selectedCourse, setSelectedCourse] = useState<BeautyCourse | null>(null);
+  const [activeModalImage, setActiveModalImage] = useState<string | null>(null);
+
+  const openCourseModal = (course: BeautyCourse) => {
+    setSelectedCourse(course);
+    setActiveModalImage(course.imageUrl || null);
+  };
 
   return (
     <section id="academy" className="py-16 md:py-24 bg-ivory border-b border-sage/40">
@@ -26,9 +32,10 @@ export const BeautyAcademy: React.FC = () => {
         </div>
 
         {/* Courses Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {ACADEMY_COURSES.map((course) => {
             const whatsappUrl = getWhatsAppCourseUrl(course.name);
+            const totalPhotos = course.galleryImages?.length || (course.imageUrl ? 1 : 0);
 
             return (
               <div
@@ -36,23 +43,38 @@ export const BeautyAcademy: React.FC = () => {
                 className="group bg-ivory-light border border-sage/60 rounded-sm overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-olive/60 hover:shadow-sm"
               >
                 <div>
-                  {/* Course Image Placeholder */}
+                  {/* Course Image */}
                   <div className="p-3 bg-ivory relative">
                     <span className="absolute top-5 left-5 z-10 font-sans text-[10px] uppercase tracking-widest font-semibold bg-ivory/90 text-earth px-2 py-0.5 rounded border border-sage/60">
                       Skill Training
                     </span>
-                    <ImagePlaceholder
-                      label={course.placeholderLabel}
-                      aspectRatio="landscape"
-                      src={course.imageUrl}
-                      altText={course.name}
-                      subText={`Image placeholder for ${course.name} course`}
-                    />
+
+                    {totalPhotos > 1 && (
+                      <span className="absolute top-5 right-5 z-10 font-sans text-[10px] uppercase tracking-wider font-semibold bg-charcoal/80 text-ivory px-2 py-0.5 rounded shadow-xs flex items-center gap-1">
+                        <svg className="w-2.5 h-2.5 fill-current" viewBox="0 0 20 20">
+                          <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" />
+                        </svg>
+                        <span>{totalPhotos} Photos</span>
+                      </span>
+                    )}
+
+                    <div className="cursor-pointer" onClick={() => openCourseModal(course)}>
+                      <ImagePlaceholder
+                        label={course.placeholderLabel}
+                        aspectRatio="landscape"
+                        src={course.imageUrl}
+                        altText={course.name}
+                        subText={`Image placeholder for ${course.name} course`}
+                      />
+                    </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-5 space-y-3">
-                    <h3 className="font-serif text-xl text-charcoal font-medium group-hover:text-olive transition-colors leading-snug">
+                    <h3
+                      onClick={() => openCourseModal(course)}
+                      className="font-serif text-xl text-charcoal font-medium group-hover:text-olive transition-colors leading-snug cursor-pointer"
+                    >
                       {course.name}
                     </h3>
 
@@ -88,10 +110,10 @@ export const BeautyAcademy: React.FC = () => {
                 <div className="p-5 pt-0 grid grid-cols-2 gap-2 mt-4">
                   <button
                     type="button"
-                    onClick={() => setSelectedCourse(course)}
+                    onClick={() => openCourseModal(course)}
                     className="w-full text-center bg-transparent border border-sage-dark hover:border-olive text-charcoal hover:text-olive text-[11px] uppercase tracking-wider font-semibold py-2.5 rounded-sm transition-colors focus:outline-none focus:ring-2 focus:ring-olive/40"
                   >
-                    View Syllabus
+                    View Syllabus & Works
                   </button>
 
                   <a
@@ -111,15 +133,80 @@ export const BeautyAcademy: React.FC = () => {
           })}
         </div>
 
+        {/* Practical Academy Training Showcase Banner */}
+        <div className="bg-ivory-light border border-sage/70 rounded-sm p-6 sm:p-8">
+          <div className="max-w-2xl mb-6">
+            <span className="font-sans text-[10px] uppercase tracking-widest text-earth font-semibold block mb-1">
+              HANDS-ON PRACTICAL MASTERY
+            </span>
+            <h3 className="font-serif text-2xl font-medium text-charcoal">
+              Real Transformations Taught at Lucky Glamours
+            </h3>
+            <p className="font-sans text-xs text-charcoal/70 mt-1 leading-relaxed">
+              Our students and mentees gain practical, hands-on experience in authentic South Indian bridal makeup, hair setting, poola jada designing, and contemporary styling.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+            <div className="group relative rounded-sm overflow-hidden border border-sage/60 aspect-[3/4] bg-ivory">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/LuckyGlamours/traditional_bride_pink_teal_kanjeevaram.jpeg"
+                alt="Traditional bridal artistry practical training"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute bottom-2 left-2 right-2 bg-ivory/90 text-charcoal text-[9px] font-sans uppercase tracking-wider font-semibold px-2 py-1 rounded text-center truncate">
+                Bridal Saree Artistry
+              </span>
+            </div>
+
+            <div className="group relative rounded-sm overflow-hidden border border-sage/60 aspect-[3/4] bg-ivory">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/LuckyGlamours/bridal_floral_braid_poola_jada.jpeg"
+                alt="Intricate poola jada floral braiding course training"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute bottom-2 left-2 right-2 bg-ivory/90 text-charcoal text-[9px] font-sans uppercase tracking-wider font-semibold px-2 py-1 rounded text-center truncate">
+                Poola Jada Floral Braid
+              </span>
+            </div>
+
+            <div className="group relative rounded-sm overflow-hidden border border-sage/60 aspect-[3/4] bg-ivory">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/LuckyGlamours/haldi_bride_candid_portrait.jpeg"
+                alt="Dewy skin prep and personal self-makeup masterclass"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute bottom-2 left-2 right-2 bg-ivory/90 text-charcoal text-[9px] font-sans uppercase tracking-wider font-semibold px-2 py-1 rounded text-center truncate">
+                Dewy Skin & Occasions
+              </span>
+            </div>
+
+            <div className="group relative rounded-sm overflow-hidden border border-sage/60 aspect-[3/4] bg-ivory">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/LuckyGlamours/reception_couple_navy_blue.jpeg"
+                alt="High-definition stage and reception styling"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span className="absolute bottom-2 left-2 right-2 bg-ivory/90 text-charcoal text-[9px] font-sans uppercase tracking-wider font-semibold px-2 py-1 rounded text-center truncate">
+                Stage HD & Couple
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Course Detail Modal */}
         {selectedCourse && (
           <div
-            className="fixed inset-0 z-50 overflow-y-auto bg-charcoal/60 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+            className="fixed inset-0 z-50 overflow-y-auto bg-charcoal/70 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
             role="dialog"
             aria-modal="true"
           >
             <div className="fixed inset-0" onClick={() => setSelectedCourse(null)} aria-hidden="true" />
-            <div className="relative bg-ivory border border-sage/80 rounded-sm w-full max-w-2xl overflow-hidden shadow-2xl z-10 p-6 space-y-6">
+            <div className="relative bg-ivory border border-sage/80 rounded-sm w-full max-w-2xl overflow-hidden shadow-2xl z-10 p-6 space-y-5">
               <div className="flex items-center justify-between border-b border-sage/40 pb-4">
                 <div>
                   <span className="font-sans text-[10px] uppercase tracking-widest text-earth font-semibold block">
@@ -131,19 +218,57 @@ export const BeautyAcademy: React.FC = () => {
                   type="button"
                   onClick={() => setSelectedCourse(null)}
                   className="p-1 text-charcoal/70 hover:text-charcoal"
+                  aria-label="Close"
                 >
                   ✕
                 </button>
               </div>
 
               <div className="space-y-4 text-xs font-sans text-charcoal/80">
-                <ImagePlaceholder
-                  label={selectedCourse.placeholderLabel}
-                  aspectRatio="landscape"
-                  src={selectedCourse.imageUrl}
-                  altText={selectedCourse.name}
-                  subText={`Detailed training placeholder for ${selectedCourse.name}`}
-                />
+                {/* Active Image */}
+                <div className="bg-ivory-dark/20 p-1 border border-sage/50 rounded-sm">
+                  <ImagePlaceholder
+                    label={selectedCourse.placeholderLabel}
+                    aspectRatio="landscape"
+                    src={activeModalImage || selectedCourse.imageUrl}
+                    altText={selectedCourse.name}
+                    subText={`Detailed training preview for ${selectedCourse.name}`}
+                  />
+                </div>
+
+                {/* Additional Course Showcase Thumbnails */}
+                {selectedCourse.galleryImages && selectedCourse.galleryImages.length > 1 && (
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] uppercase tracking-wider font-semibold text-charcoal block">
+                      Training Showcase & Student Works ({selectedCourse.galleryImages.length} Photos):
+                    </span>
+                    <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                      {selectedCourse.galleryImages.map((imgSrc, idx) => {
+                        const isCurrent = (activeModalImage || selectedCourse.imageUrl) === imgSrc;
+                        return (
+                          <button
+                            key={idx}
+                            type="button"
+                            onClick={() => setActiveModalImage(imgSrc)}
+                            className={`relative shrink-0 w-16 h-16 rounded-xs overflow-hidden border transition-all ${
+                              isCurrent
+                                ? 'border-olive ring-2 ring-olive/40 scale-105'
+                                : 'border-sage/70 opacity-70 hover:opacity-100 hover:border-olive/70'
+                            }`}
+                          >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={imgSrc}
+                              alt={`Course photo ${idx + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
                 <p className="text-sm leading-relaxed">{selectedCourse.description}</p>
                 
                 <div className="p-3 bg-sage-light/40 rounded border border-sage/40 grid grid-cols-1 sm:grid-cols-3 gap-2 text-earth">
@@ -186,7 +311,7 @@ export const BeautyAcademy: React.FC = () => {
                   href={getWhatsAppCourseUrl(selectedCourse.name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-olive text-ivory text-xs uppercase font-semibold px-6 py-2.5 rounded-sm"
+                  className="inline-flex items-center gap-2 bg-olive text-ivory text-xs uppercase font-semibold px-6 py-2.5 rounded-sm hover:bg-olive-dark transition-colors"
                 >
                   Enquire Batch Details on WhatsApp
                 </a>
