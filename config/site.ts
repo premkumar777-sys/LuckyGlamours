@@ -15,7 +15,7 @@ export const siteConfig: SiteConfig = {
   brandName: "Lucky Glamours",
   tagline: "Beauty Artistry · Bridal · Beauty Academy · Botanical Skincare",
   subTagline: "Professional makeup artistry, bridal styling, skill training courses, and handcrafted botanical soaps & oils.",
-  announcement: "Beauty, artistry & handcrafted self-care",
+  announcement: "Special Offer: Handcrafted Botanical Soaps from ₹199 (Up to 38% OFF) · Order on WhatsApp",
   
   // WhatsApp business number: 9347647145 (+919347647145)
   whatsappNumber: "919347647145", 
@@ -30,10 +30,18 @@ export const siteConfig: SiteConfig = {
 /**
  * Generates a WhatsApp URL for product orders (Soaps & Oils).
  */
-export function getWhatsAppProductUrl(productName: string, size?: string): string {
+export function getWhatsAppProductUrl(
+  productName: string,
+  size?: string,
+  price?: number,
+  originalPrice?: number
+): string {
   const cleanNumber = siteConfig.whatsappNumber.replace(/[^0-9]/g, "");
   const sizeString = size ? `, ${size}` : "";
-  const text = `Hello Lucky Glamours! I am interested in ${productName}${sizeString}. Please share the current price, availability, and delivery details.`;
+  const priceString = price
+    ? ` (Offer Price: ₹${price}${originalPrice ? ` | MRP: ₹${originalPrice}` : ""})`
+    : "";
+  const text = `Hello Lucky Glamours! I am interested in ordering ${productName}${sizeString}${priceString}. Please confirm availability and delivery details.`;
   return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(text)}`;
 }
 

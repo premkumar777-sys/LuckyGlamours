@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from 'react';
-import { Product } from '../data/products';
+import { Product, getProductDiscountPercentage } from '../data/products';
 import { getWhatsAppProductUrl } from '../config/site';
 import { ImagePlaceholder } from './ui/ImagePlaceholder';
 
@@ -28,7 +28,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
 
   if (!product) return null;
 
-  const whatsappUrl = getWhatsAppProductUrl(product.name, product.size);
+  const discountPercent = getProductDiscountPercentage(product.originalPriceInINR, product.priceInINR);
+  const whatsappUrl = getWhatsAppProductUrl(
+    product.name,
+    product.size,
+    product.priceInINR,
+    product.originalPriceInINR
+  );
 
   return (
     <div
@@ -63,7 +69,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             
             {/* Image Placeholder */}
-            <div className="md:col-span-5 bg-ivory-dark/30 p-2 border border-sage/50 rounded-sm">
+            <div className="md:col-span-5 bg-ivory-dark/30 p-2 border border-sage/50 rounded-sm relative">
+              {discountPercent && (
+                <span className="absolute top-4 right-4 z-10 font-sans text-xs font-bold uppercase tracking-wider bg-emerald-800 text-ivory px-2.5 py-0.5 rounded shadow-xs">
+                  {discountPercent}% OFF
+                </span>
+              )}
               <ImagePlaceholder
                 label={product.placeholderLabel}
                 aspectRatio="square"
@@ -78,14 +89,35 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
               <h2 id="modal-product-title" className="font-serif text-2xl sm:text-3xl font-medium text-charcoal">
                 {product.name}
               </h2>
-              <div className="flex items-center gap-4">
-                <span className="font-serif text-2xl font-semibold text-olive">
-                  ₹{product.priceInINR}
-                </span>
-                <span className="text-xs font-sans text-earth bg-sage-light/80 px-2.5 py-1 rounded">
-                  {product.size}
-                </span>
+
+              {/* Flipkart / Amazon Style Price Box */}
+              <div className="space-y-1.5 p-3.5 bg-ivory-light border border-sage/60 rounded">
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <span className="font-serif text-3xl font-semibold text-olive">
+                    ₹{product.priceInINR}
+                  </span>
+                  {product.originalPriceInINR && (
+                    <>
+                      <span className="text-base font-sans text-charcoal/50 line-through">
+                        M.R.P.: ₹{product.originalPriceInINR}
+                      </span>
+                      <span className="text-xs font-sans font-bold text-emerald-800 bg-emerald-100/90 border border-emerald-300 px-2 py-0.5 rounded-full">
+                        {discountPercent}% OFF
+                      </span>
+                    </>
+                  )}
+                  <span className="text-xs font-sans text-earth bg-sage-light/80 px-2.5 py-1 rounded">
+                    {product.size}
+                  </span>
+                </div>
+                {product.originalPriceInINR && (
+                  <p className="text-xs font-sans text-emerald-700 font-medium flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                    <span>Special Deal: You Save ₹{product.originalPriceInINR - product.priceInINR} ({discountPercent}% off MRP)</span>
+                  </p>
+                )}
               </div>
+
               <p className="font-sans text-sm text-charcoal/80 leading-relaxed font-light">
                 {product.description}
               </p>
@@ -131,8 +163,16 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product,
         {/* Modal Footer CTA */}
         <div className="p-4 sm:p-6 border-t border-sage/40 bg-ivory-light flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
           <div className="text-center sm:text-left">
-            <span className="block font-serif text-xl font-medium text-charcoal">₹{product.priceInINR}</span>
-            <span className="block text-[11px] text-earth font-sans">WhatsApp Ordering Only</span>
+            <div className="flex items-baseline gap-2 justify-center sm:justify-start">
+              <span className="block font-serif text-2xl font-semibold text-charcoal">₹{product.priceInINR}</span>
+              {product.originalPriceInINR && (
+                <>
+                  <span className="text-xs font-sans text-charcoal/50 line-through">₹{product.originalPriceInINR}</span>
+                  <span className="text-xs font-sans font-bold text-emerald-700">({discountPercent}% off)</span>
+                </>
+              )}
+            </div>
+            <span className="block text-[11px] text-earth font-sans">WhatsApp Ordering Only · Small-Batch Handcrafted</span>
           </div>
 
           <a

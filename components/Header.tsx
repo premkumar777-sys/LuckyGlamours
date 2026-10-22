@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
     { name: 'Bridal', href: '#bridal' },
     { name: 'Academy', href: '#academy' },
     { name: 'Shop', href: '#shop' },
-    { name: 'About', href: '#about' },
+    { name: 'FAQ', href: '#faq' },
     { name: 'Contact', href: '#footer' },
   ];
 

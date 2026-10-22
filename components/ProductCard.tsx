@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from '../data/products';
+import { Product, getProductDiscountPercentage } from '../data/products';
 import { getWhatsAppProductUrl } from '../config/site';
 import { ImagePlaceholder } from './ui/ImagePlaceholder';
 
@@ -9,7 +9,13 @@ export interface ProductCardProps {
 }
 
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelectProduct }) => {
-  const whatsappUrl = getWhatsAppProductUrl(product.name, product.size);
+  const discountPercent = getProductDiscountPercentage(product.originalPriceInINR, product.priceInINR);
+  const whatsappUrl = getWhatsAppProductUrl(
+    product.name,
+    product.size,
+    product.priceInINR,
+    product.originalPriceInINR
+  );
 
   return (
     <div className="group bg-ivory border border-sage/60 rounded-sm overflow-hidden flex flex-col justify-between transition-all duration-300 hover:border-olive/60 hover:shadow-sm">
@@ -19,6 +25,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelectProdu
           <span className="absolute top-5 left-5 z-10 font-sans text-[10px] uppercase tracking-widest font-semibold bg-ivory/90 text-earth px-2 py-0.5 rounded border border-sage/60">
             {product.categoryLabel}
           </span>
+          {discountPercent && (
+            <span className="absolute top-5 right-5 z-10 font-sans text-[10px] font-bold uppercase tracking-wider bg-emerald-800 text-ivory px-2 py-0.5 rounded shadow-xs">
+              {discountPercent}% OFF
+            </span>
+          )}
           <ImagePlaceholder
             label={product.placeholderLabel}
             aspectRatio="square"
@@ -30,18 +41,38 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onSelectProdu
 
         {/* Product Info */}
         <div className="p-5 space-y-3">
-          <div className="flex items-start justify-between gap-2">
-            <h3 className="font-serif text-xl text-charcoal font-medium leading-snug group-hover:text-olive transition-colors">
+          <div>
+            <h3 className="font-serif text-lg text-charcoal font-medium leading-snug group-hover:text-olive transition-colors">
               {product.name}
             </h3>
-            <span className="font-sans text-sm font-semibold text-charcoal shrink-0 bg-sage-light/60 px-2 py-1 rounded">
-              ₹{product.priceInINR}
-            </span>
+            <p className="font-sans text-xs text-earth font-medium tracking-wide mt-1">
+              {product.size}
+            </p>
           </div>
 
-          <p className="font-sans text-xs text-earth font-medium tracking-wide">
-            {product.size}
-          </p>
+          {/* Flipkart / Amazon Reference Price Layout */}
+          <div className="pt-0.5">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <span className="font-sans text-xl font-bold text-charcoal">
+                ₹{product.priceInINR}
+              </span>
+              {product.originalPriceInINR && (
+                <>
+                  <span className="font-sans text-xs text-charcoal/50 line-through">
+                    ₹{product.originalPriceInINR}
+                  </span>
+                  <span className="font-sans text-xs font-bold text-emerald-700">
+                    {discountPercent}% off
+                  </span>
+                </>
+              )}
+            </div>
+            {product.originalPriceInINR && (
+              <p className="text-[11px] font-sans text-emerald-700 font-medium mt-0.5">
+                Special Offer · Save ₹{product.originalPriceInINR - product.priceInINR}
+              </p>
+            )}
+          </div>
 
           <p className="font-sans text-xs text-charcoal/70 line-clamp-2 leading-relaxed">
             {product.description}

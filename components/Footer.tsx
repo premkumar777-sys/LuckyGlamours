@@ -45,16 +45,16 @@ export const Footer: React.FC = () => {
                 <a href="#hero" className="hover:text-sage transition-colors">Home</a>
               </li>
               <li>
-                <a href="#shop" className="hover:text-sage transition-colors">Shop Collection</a>
+                <a href="#services" className="hover:text-sage transition-colors">Beauty & Bridal Services</a>
               </li>
               <li>
-                <a href="#story" className="hover:text-sage transition-colors">Our Story</a>
+                <a href="#bridal" className="hover:text-sage transition-colors">Bridal Lookbook</a>
               </li>
               <li>
-                <a href="#ingredients" className="hover:text-sage transition-colors">Botanical Ingredients</a>
+                <a href="#academy" className="hover:text-sage transition-colors">Beauty Academy</a>
               </li>
               <li>
-                <a href="#gifting" className="hover:text-sage transition-colors">Gift Sets</a>
+                <a href="#shop" className="hover:text-sage transition-colors">Handmade Soaps & Oils</a>
               </li>
               <li>
                 <a href="#faq" className="hover:text-sage transition-colors">Frequently Asked Questions</a>

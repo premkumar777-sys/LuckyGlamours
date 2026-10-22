@@ -1,5 +1,5 @@
 import React from 'react';
-import { PRODUCTS_CATALOG, Product } from '../data/products';
+import { PRODUCTS_CATALOG, Product, getProductDiscountPercentage } from '../data/products';
 import { getWhatsAppProductUrl } from '../config/site';
 import { ImagePlaceholder } from './ui/ImagePlaceholder';
 
@@ -10,7 +10,13 @@ export interface FeaturedProductProps {
 export const FeaturedProduct: React.FC<FeaturedProductProps> = ({ onSelectProduct }) => {
   // Use the featured soap or first featured product
   const featured = PRODUCTS_CATALOG.find((p) => p.isFeatured) || PRODUCTS_CATALOG[0];
-  const whatsappUrl = getWhatsAppProductUrl(featured.name, featured.size);
+  const discountPercent = getProductDiscountPercentage(featured.originalPriceInINR, featured.priceInINR);
+  const whatsappUrl = getWhatsAppProductUrl(
+    featured.name,
+    featured.size,
+    featured.priceInINR,
+    featured.originalPriceInINR
+  );
 
   return (
     <section className="py-16 md:py-24 bg-ivory-light border-b border-sage/40">
@@ -20,7 +26,12 @@ export const FeaturedProduct: React.FC<FeaturedProductProps> = ({ onSelectProduc
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Featured Image Placeholder */}
-            <div className="lg:col-span-6 bg-ivory-dark/30 p-3 border border-sage/50 rounded-sm">
+            <div className="lg:col-span-6 bg-ivory-dark/30 p-3 border border-sage/50 rounded-sm relative">
+              {discountPercent && (
+                <span className="absolute top-5 right-5 z-10 font-sans text-xs font-bold uppercase tracking-wider bg-emerald-800 text-ivory px-3 py-1 rounded shadow-xs">
+                  {discountPercent}% OFF DEAL
+                </span>
+              )}
               <ImagePlaceholder
                 label="[FEATURED PRODUCT PHOTOGRAPH]"
                 aspectRatio="square"
@@ -34,7 +45,7 @@ export const FeaturedProduct: React.FC<FeaturedProductProps> = ({ onSelectProduc
             <div className="lg:col-span-6 space-y-5">
               <div className="inline-block px-3 py-1 bg-sage-light border border-sage/80 rounded">
                 <span className="font-sans text-[11px] font-semibold uppercase tracking-widest text-earth">
-                  ARTISANAL SPOTLIGHT
+                  ARTISANAL SPOTLIGHT · SPECIAL OFFER
                 </span>
               </div>
 
@@ -42,13 +53,32 @@ export const FeaturedProduct: React.FC<FeaturedProductProps> = ({ onSelectProduc
                 {featured.name}
               </h2>
 
-              <div className="flex items-center gap-4">
-                <span className="font-serif text-3xl font-semibold text-olive">
-                  ₹{featured.priceInINR}
-                </span>
-                <span className="text-xs font-sans text-earth bg-sage-light/80 px-3 py-1 rounded font-medium">
-                  {featured.size}
-                </span>
+              {/* Flipkart / Amazon Style Price Box */}
+              <div className="space-y-1.5 p-3.5 bg-ivory-light border border-sage/60 rounded">
+                <div className="flex flex-wrap items-baseline gap-3">
+                  <span className="font-serif text-3xl sm:text-4xl font-semibold text-olive">
+                    ₹{featured.priceInINR}
+                  </span>
+                  {featured.originalPriceInINR && (
+                    <>
+                      <span className="text-base font-sans text-charcoal/50 line-through">
+                        M.R.P.: ₹{featured.originalPriceInINR}
+                      </span>
+                      <span className="text-xs font-sans font-bold text-emerald-800 bg-emerald-100/90 border border-emerald-300 px-2.5 py-0.5 rounded-full">
+                        {discountPercent}% OFF
+                      </span>
+                    </>
+                  )}
+                  <span className="text-xs font-sans text-earth bg-sage-light/80 px-2.5 py-0.5 rounded font-medium">
+                    {featured.size}
+                  </span>
+                </div>
+                {featured.originalPriceInINR && (
+                  <p className="text-xs font-sans text-emerald-700 font-medium flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+                    <span>Limited Time Deal: Save ₹{featured.originalPriceInINR - featured.priceInINR} ({discountPercent}% discount on MRP)</span>
+                  </p>
+                )}
               </div>
 
               <p className="font-sans text-sm text-charcoal/80 leading-relaxed font-light">

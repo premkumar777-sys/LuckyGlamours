@@ -9,8 +9,6 @@ import { MakeupPortfolio } from "../components/MakeupPortfolio";
 import { BeautyAcademy } from "../components/BeautyAcademy";
 import { ProductGrid } from "../components/ProductGrid";
 import { FeaturedProduct } from "../components/FeaturedProduct";
-import { GiftCollection } from "../components/GiftCollection";
-import { MakerStory } from "../components/MakerStory";
 import { FAQAccordion } from "../components/FAQAccordion";
 import { Footer } from "../components/Footer";
 import { ProductDetailModal } from "../components/ProductDetailModal";
@@ -44,12 +42,6 @@ export default function Home() {
 
       {/* Featured Artisanal Product Spotlight */}
       <FeaturedProduct onSelectProduct={(p) => setSelectedProduct(p)} />
-
-      {/* Botanical Gift Collections */}
-      <GiftCollection />
-
-      {/* About Lucky Glamours & Founder Story */}
-      <MakerStory />
 
       {/* Frequently Asked Questions */}
       <FAQAccordion />

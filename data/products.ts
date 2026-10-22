@@ -6,6 +6,7 @@ export interface Product {
   tagline: string;
   description: string;
   priceInINR: number;
+  originalPriceInINR?: number; // MRP before discount (Flipkart/Amazon reference)
   size: string;
   ingredients: string[];
   directions: string;
@@ -13,6 +14,13 @@ export interface Product {
   placeholderLabel: string;
   imageUrl?: string; // Optional field for future actual product image URL
   isFeatured?: boolean;
+}
+
+export function getProductDiscountPercentage(originalPrice?: number, currentPrice?: number): number | null {
+  if (originalPrice && currentPrice && originalPrice > currentPrice) {
+    return Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
+  }
+  return null;
 }
 
 export const PRODUCTS_CATALOG: Product[] = [
@@ -23,7 +31,8 @@ export const PRODUCTS_CATALOG: Product[] = [
     categoryLabel: "Handmade Soap",
     tagline: "Slow-cured cold process bar infused with botanical petals",
     description: "Handcrafted in small batches using traditional cold-process saponification. Formulated with cold-pressed coconut oil, raw shea butter, and infused with saffron strands and organic calendula petals for a rich, gentle lather.",
-    priceInINR: 350,
+    priceInINR: 199,
+    originalPriceInINR: 299,
     size: "125g bar",
     ingredients: [
       "Cold-Pressed Virgin Coconut Oil",
@@ -47,7 +56,8 @@ export const PRODUCTS_CATALOG: Product[] = [
     categoryLabel: "Handmade Soap",
     tagline: "Creamy, botanical aloe vera bar for gentle daily cleansing",
     description: "A deeply nourishing bar crafted with pure succulent aloe vera and raw forest honey. Provides a soft, velvety foam that cleanses without stripping skin of natural moisture.",
-    priceInINR: 295,
+    priceInINR: 199,
+    originalPriceInINR: 299,
     size: "120g bar",
     ingredients: [
       "Fresh Aloe Vera Gel Extract",
@@ -69,7 +79,8 @@ export const PRODUCTS_CATALOG: Product[] = [
     categoryLabel: "Handmade Soap",
     tagline: "Ayurvedic floral carved bar for clear, radiant skin",
     description: "Handcrafted with wild manjistha root extract and cold-pressed botanical oils. Helps gently clear skin blemishes, fade tan, and even complexion tone naturally.",
-    priceInINR: 320,
+    priceInINR: 199,
+    originalPriceInINR: 299,
     size: "125g bar",
     ingredients: [
       "Pure Manjistha Root Extract",
@@ -113,7 +124,8 @@ export const PRODUCTS_CATALOG: Product[] = [
     categoryLabel: "Handmade Soap",
     tagline: "Nutrient-rich carrot extract & wild turmeric bar for bright, fresh skin",
     description: "Infused with cold-pressed carrot extract and pure golden turmeric. Helps reduce tan, revitalize dull skin, and provide a radiant natural glow.",
-    priceInINR: 330,
+    priceInINR: 199,
+    originalPriceInINR: 299,
     size: "125g bar",
     ingredients: [
       "Fresh Carrot Extract",
@@ -134,7 +146,8 @@ export const PRODUCTS_CATALOG: Product[] = [
     categoryLabel: "Handmade Soap",
     tagline: "Pure organic botanical bars handcrafted with love and care",
     description: "Authentic Lucky Herbal cold-process soap bars formulated with natural oils, botanical flowers, and skin-loving herbs. Each bar is carefully cured for superior mildness.",
-    priceInINR: 350,
+    priceInINR: 249,
+    originalPriceInINR: 399,
     size: "125g bar",
     ingredients: [
       "Virgin Coconut Oil",
