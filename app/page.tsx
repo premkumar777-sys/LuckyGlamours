@@ -8,7 +8,6 @@ import { BeautyServices } from "../components/BeautyServices";
 import { MakeupPortfolio } from "../components/MakeupPortfolio";
 import { BeautyAcademy } from "../components/BeautyAcademy";
 import { ProductGrid } from "../components/ProductGrid";
-import { FeaturedProduct } from "../components/FeaturedProduct";
 import { FAQAccordion } from "../components/FAQAccordion";
 import { Footer } from "../components/Footer";
 import { ProductDetailModal } from "../components/ProductDetailModal";
@@ -39,9 +38,6 @@ export default function Home() {
 
       {/* Shop Soaps & Oils Collection */}
       <ProductGrid onSelectProduct={(p) => setSelectedProduct(p)} />
-
-      {/* Featured Artisanal Product Spotlight */}
-      <FeaturedProduct onSelectProduct={(p) => setSelectedProduct(p)} />
 
       {/* Frequently Asked Questions */}
       <FAQAccordion />
